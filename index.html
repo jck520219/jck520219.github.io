@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加载中...</title>
+</head>
+<body>
+
+  <h1>正在加载中...</h1>
+
+  <script>
+    // 定义链接
+    var linkA = "https://i.qianbao.qq.com/lib/components/adapt/middlepage.html?url=https://qm.qq.com/q/DjYls550EC";
+    var linkB = "https://i.qianbao.qq.com/lib/components/adapt/middlepage.html?url=https://qm.qq.com/q/f2MFd24fbW";
+    var linkC = "https://picx.zhimg.com/80/v2-cc07ba21d39c82861d3bab4f5bad12e7_720w.png";
+    var linkD = "https://sourl.cn/nbfxkc";
+
+    // 检测是否在QQ中打开
+    var isQQ = navigator.userAgent.toLowerCase().indexOf('qq') !== -1;
+
+    // 检测是否在微信中打开
+    var isWeChat = navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1;
+
+    // 生成一个随机数，用于在QQ中选择随机跳转的链接
+    var randomIndexAB = Math.floor(Math.random() * 2);
+
+    // 根据不同情况选择链接并执行跳转
+    if (isQQ) {
+      // 在QQ中打开，随机选择一次
+      var randomLinkAB = (randomIndexAB === 0) ? linkA : linkB;
+      window.location.href = randomLinkAB;
+    } else if (isWeChat) {
+      // 在微信中打开
+      window.location.href = linkC;
+    } else {
+      // 在其他环境中打开
+      window.location.href = linkD;
+    }
+  </script>
+
+</body>
+</html>
